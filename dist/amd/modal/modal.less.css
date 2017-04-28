@@ -1,0 +1,10 @@
+/*bootstrap-canjs@0.1.0#modal/modal.less!steal-less@1.2.0#less*/
+bootstrap-modal-content {
+  display: none;
+}
+bootstrap-modal {
+  display: block;
+}
+bootstrap-modal bootstrap-modal-content {
+  display: block;
+}
