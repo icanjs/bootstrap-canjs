@@ -72,7 +72,7 @@
     "can-define": "^1.0.10"
   },
   "devDependencies": {
-    "bootstrap": "^3.3.7",,
+    "bootstrap": "^3.3.7",
     "can-stache": "^3.0.22",
     "can-view-autorender": "^3.0.3",
     "chai": "^3.5.0",
