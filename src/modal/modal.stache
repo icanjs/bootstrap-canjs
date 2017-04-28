@@ -3,3 +3,7 @@
     <div class="modal-content"></div>
   </div>
 </div>
+
+{{#if isVisible}}
+  <div class="modal-backdrop fade in"></div>
+{{/if}}

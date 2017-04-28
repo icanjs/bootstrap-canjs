@@ -46,7 +46,7 @@ const RootViewModel = DefineMap.extend({
     this.isVisible = true;
   },
   doClose () {
-    if (this.el.firstChild){
+    if (this.el.firstChild) {
       this.el.removeChild(this.el.firstChild);
     }
     this.isVisible = false;
