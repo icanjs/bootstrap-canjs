@@ -1,6 +1,6 @@
 {
   "name": "bootstrap-canjs",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "CanJS component wrapper around Tw Bootstrap JS components",
   "homepage": "",
   "repository": {
