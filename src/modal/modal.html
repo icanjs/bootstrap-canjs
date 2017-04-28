@@ -1,0 +1,48 @@
+<style>body { padding: 20px }</style>
+
+<body></body>
+<script type="text/stache" id="demo-html">
+<can-import from="bootstrap-canjs/modal/" />
+
+<!--  Place `bootstrap-modal` in a top-level position in your document. -->
+<bootstrap-modal></bootstrap-modal>
+
+<!-- Use `bootstrap-modal-content` whenever you want, e.g. inside your components. -->
+<button ($click)="openMyModal()">Open my modal</button>
+{{#if isOpened}}
+  Modal should be opened now!
+  <bootstrap-modal-content>
+    <div class="modal-header">
+      <button type="button" class="close" ($click)="close()" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <h4 class="modal-title">Modal title</h4>
+    </div>
+    <div class="modal-body">
+      <p>One fine body&hellip;</p>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default" ($click)="close()">Close</button>
+      <button type="button" class="btn btn-primary">Save changes</button>
+    </div>
+  </bootstrap-modal-content>
+{{/if}}
+</script>
+
+<script src="../../node_modules/steal/steal.js"
+        main="@empty">
+  import DefineMap from 'can-define/map/map';
+  import stache from 'can-stache';
+  import 'can-view-import';
+  
+  let VM = DefineMap.extend({
+    isOpened: 'boolean',
+    openMyModal () {
+      // To re-open the modal we need to re-insert it:
+      this.isOpened = false;
+      this.isOpened = true;
+    }
+  });
+  
+  stache.async(document.getElementById('demo-html').innerHTML).then(template => {
+    document.body.appendChild( template( new VM() ) );
+  });
+</script>
