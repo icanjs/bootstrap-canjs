@@ -20,10 +20,8 @@ export const ViewModel = DefineMap.extend({
     if (this.parent) {
       // Move element to its original parent (e.g. if it was rendered with `#if` helper):
       this.parent.appendChild(this.el);
-    } else {
-      // Otherwise let ModalRoot to remove it:
-      eventObj.dispatch('close');
     }
+    eventObj.dispatch('close');
   }
 });
 export default Component.extend({
@@ -42,11 +40,16 @@ const RootViewModel = DefineMap.extend({
   el: {
     type: '*'
   },
+  isVisible: 'boolean',
   doOpen (ev, el) {
     this.el.appendChild(el);
+    this.isVisible = true;
   },
   doClose () {
-    this.el.removeChild(this.el.firstChild);
+    if (this.el.firstChild){
+      this.el.removeChild(this.el.firstChild);
+    }
+    this.isVisible = false;
   }
 });
 export const ModalRoot = Component.extend({
