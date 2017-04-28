@@ -1,9 +1,9 @@
-import QUnit from 'steal-qunit';
+import { assert } from 'chai/chai';
+import 'steal-mocha';
 import plugin from './bootstrap-canjs';
 
-QUnit.module('bootstrap-canjs');
-
-QUnit.test('Initialized the plugin', function(){
-  QUnit.equal(typeof plugin, 'function');
-  QUnit.equal(plugin(), 'This is the bootstrap-canjs plugin');
+describe('bootstrap-canjs', function () {
+  it('should initialized the plugin', function () {
+    assert.equal(plugin(), 'This is the bootstrap-canjs plugin');
+  });
 });

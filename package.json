@@ -17,8 +17,9 @@
     "version": "git commit -am \"Update version number\" && git checkout -b release && git add -f dist/",
     "postpublish": "git push --tags && git checkout master && git branch -D release && git push",
     "testee": "testee test.html --browsers firefox",
-    "test": "npm run jshint && npm run testee",
-    "jshint": "jshint ./*.js ./src/ --config",
+    "test": "npm run lint && npm run testee",
+    "lint": "semistandard",
+    "lint:fix": "semistandard --fix",
     "release:patch": "npm version patch && npm publish",
     "release:minor": "npm version minor && npm publish",
     "release:major": "npm version major && npm publish",
@@ -42,6 +43,11 @@
     "component",
     "donejs-plugin"
   ],
+  "semistandard": {
+    "env": [
+      "mocha"
+    ]
+  },
   "steal": {
     "main": "bootstrap-canjs",
     "configDependencies": [
@@ -63,22 +69,24 @@
   },
   "dependencies": {
     "can-component": "^3.0.7",
-    "can-define": "^1.0.17",
-    "can-stache": "^3.0.20",
+    "can-define": "^1.0.18",
+    "can-stache": "^3.0.24",
     "can-view-autorender": "^3.0.4",
-    "cssify": "^0.6.0",
+    "cssify": "^1.0.3",
     "steal-less": "^1.2.0",
     "steal-stache": "^3.0.5"
   },
   "devDependencies": {
+    "chai": "^3.5.0",
     "done-serve": "^1.0.0",
     "donejs-cli": "^1.0.0",
     "generator-donejs": "^1.0.0",
-    "jshint": "^2.9.1",
-    "steal": "^1.3.1",
-    "steal-qunit": "^1.0.1",
-    "steal-tools": "^1.2.0",
-    "testee": "^0.3.0"
+    "mocha": "^3.3.0",
+    "semistandard": "^11.0.0",
+    "steal": "^1.5.1",
+    "steal-mocha": "^1.0.0",
+    "steal-tools": "^1.3.3",
+    "testee": "^0.4.1"
   },
   "license": "MIT"
 }
